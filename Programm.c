@@ -1,15 +1,18 @@
-#include <stdio.h>
-#include <string.h> 
-int main(int argc, char *argv[])
+#include <iostream>
+using namespace std;
+
+int main()
 {
-    char filename[255], cmd[600];
-    if ( argc != 2 )
+    char buffer[5];
+    int admin = 0;
+
+    cin>>buffer;
+    if(strcmp(buffer,"in") == 0)
     {
-        printf("\n\nusage: %s <filename/dir>\n\n", argv[0]); 
-        exit(0);
+        admin = 1;
+        cout<<"Correct"<<endl;
     }
-    strcpy(filename, argv[1]);
-    snprintf(cmd, 600, "ls |grep %s", filename);
-    system(cmd);
+    if(admin != 0)
+        cout << "Access" << endl;
     return 0;
 }
